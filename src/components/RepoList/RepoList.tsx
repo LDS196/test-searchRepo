@@ -25,7 +25,7 @@ const RepoList = () => {
             <Search setSearchValue={setSearchTerm} searchName={searchTerm} changePage={serCurrentPage}/>
             <ul>
                 {
-                    repositories.length && repositories.map(r => <li key={r.node.id}><RepoItem  repo={r}/></li>)
+                    !!repositories.length && repositories.map(r => <li key={r.node.id}><RepoItem  repo={r}/></li>)
                 }
             </ul>
 

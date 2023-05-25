@@ -11,7 +11,7 @@ import {getVariables} from "../utils/get-variables";
     "repos/getRepos", async (arg, thunkAPI) => {
 
         const {rejectWithValue, getState} = thunkAPI
-        const {searchTerm, currentPage} = getState()
+        const {searchTerm, currentPage} = getState().repos
         const query = getQuery(searchTerm, RESULTS_PER_PAGE)
         const variables = getVariables(RESULTS_PER_PAGE, currentPage)
         try {
@@ -46,8 +46,6 @@ const slice = createSlice({
         },
         setSearchTerm: (state, action: PayloadAction<string>) => {
             state.searchTerm = action.payload
-
-
         },
     },
     extraReducers: (builder) => {
