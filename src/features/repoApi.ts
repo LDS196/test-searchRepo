@@ -23,11 +23,12 @@ export const repoApi={
 export type RepoResponseType = {
     data: {
         search: {
-            edges: Array<{ node: RepoType }>
+            edges: RepoType[]
         }
     }
 }
 export type RepoType={
+    node:{
     id: string
     name: string
     owner: {
@@ -44,4 +45,6 @@ export type RepoType={
         nodes: Array<{ name: string }>
     }
     description: string
+}
+
 }

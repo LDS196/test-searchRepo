@@ -1,0 +1,15 @@
+.item {
+  display: flex;
+  gap: 0 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  p {
+
+    padding: 5px;
+
+    span {
+      padding: 5px;
+    }
+  }
+}

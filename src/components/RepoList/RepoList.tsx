@@ -14,6 +14,7 @@ const RepoList = () => {
     const {getRepos} = useActions(reposThunks)
     const {serCurrentPage, setSearchTerm} = useActions(reposActions)
     const numberButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     useEffect(() => {
         getRepos()
     }, [searchTerm, currentPage])
@@ -22,9 +23,12 @@ const RepoList = () => {
         <div className={s.main}>
             <h1>Search Repositories by Name</h1>
             <Search setSearchValue={setSearchTerm} searchName={searchTerm} changePage={serCurrentPage}/>
-            {
-                repositories.length && repositories.map(r => <RepoItem key={r.id} repo={r}/>)
-            }
+            <ul>
+                {
+                    repositories.length && repositories.map(r => <li key={r.node.id}><RepoItem  repo={r}/></li>)
+                }
+            </ul>
+
         </div>
     );
 };
