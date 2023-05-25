@@ -1,9 +1,12 @@
 import { configureStore, ThunkAction, Action, combineReducers } from "@reduxjs/toolkit"
 import {appReducer} from "./app.slice";
+import {reposReducer,} from "../features/reposSlice";
 
 
+console.log('sss')
 const rootReducer = combineReducers({
     app: appReducer,
+    repos: reposReducer
 })
 
 export const store = configureStore({
