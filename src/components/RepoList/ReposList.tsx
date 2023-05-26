@@ -28,15 +28,15 @@ const ReposList = () => {
 
     const NextPageHandler = () => {
         setDirection(true)
-        getRepos()
+        getRepos({})
     }
     const PreviousPageHandler = () => {
         setDirection(false)
-        getRepos()
+        getRepos({})
     }
 
     useEffect(() => {
-        if (!firstRender) getRepos()
+        if (!firstRender) getRepos({})
         setFirstRender(false)
     }, [searchTerm])
 
