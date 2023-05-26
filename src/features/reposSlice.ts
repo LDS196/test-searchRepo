@@ -33,7 +33,7 @@ const getRepos = createAppAsyncThunk<{ edges: RepoType[]; pageInfo: PageInfoType
 type initialStateType = {
     direction: boolean | null
     searchTerm: string
-    repositories: RepoType
+    repositories: RepoType[]
     currentPage: number
     currentRepo: RepoType | null
     pageInfo: PageInfoType
