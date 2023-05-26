@@ -1,14 +1,14 @@
-import React, { FC } from "react"
-import { RepoType } from "../../features/repoApi"
-import { useAppSelector } from "../../hooks/useAppSelector"
-import { selectRepositories } from "../../features/repos.select"
+import React from "react"
+
+import { selectCurrentRepo } from "../../features/repos.select"
 import s from "./RepoCard.module.scss"
 import { Link } from "react-router-dom"
-type PropsType = {
-    repo: RepoType
-}
+import { useSelector } from "react-redux"
+
 export const RepoCard = () => {
-    const repoItem = useAppSelector(selectRepositories)[0].node
+    const currentRepo = useSelector(selectCurrentRepo)
+    const repoItem = currentRepo?.node
+
     return (
         <div className={s.main}>
             <h3>About repository</h3>

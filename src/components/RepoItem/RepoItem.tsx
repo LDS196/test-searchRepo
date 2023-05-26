@@ -1,19 +1,28 @@
 import React, { FC } from "react"
 import { RepoType } from "../../features/repoApi"
 import s from "./RepoItem.module.scss"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useActions } from "../../hooks/useActions"
+import { reposActions } from "../../features/reposSlice"
 
 type PropsType = {
     repo: RepoType
 }
 const RepoItem: FC<PropsType> = ({ repo }) => {
+    const { setCurrentRepo } = useActions(reposActions)
+    const navigate = useNavigate()
     const repoItem = repo.node
+
+    const goToSeeRepoInfo = (value: RepoType) => {
+        setCurrentRepo(value)
+        navigate("/repoInfo")
+    }
     return (
         <div className={s.item}>
             <p>
                 <span>Name:</span>
-                <span>
-                    <Link to={"/repoInfo"}>{repoItem.name}</Link>
+                <span onClick={() => goToSeeRepoInfo(repo)}>
+                    <Link to={""}>{repoItem.name}</Link>
                 </span>
             </p>
             <p>
@@ -30,6 +39,7 @@ const RepoItem: FC<PropsType> = ({ repo }) => {
                     <Link to={repoItem.url}>{repoItem.url}</Link>
                 </span>
             </p>
+            <div></div>
         </div>
     )
 }

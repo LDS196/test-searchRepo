@@ -1,8 +1,26 @@
-export const getQuery = (searchTerm: string, RESULTS_PER_PAGE: number) => {
+export const getQuery = (searchTerm: string, RESULTS_PER_PAGE: number, direction: boolean, endCursor, startCursor) => {
+    const direct =
+        direction === null
+            ? `first: ${RESULTS_PER_PAGE}`
+            : direction
+            ? `first: ${RESULTS_PER_PAGE}`
+            : `last: ${RESULTS_PER_PAGE}`
+    const cursor =
+        direction === null
+            ? `after: ${endCursor}`
+            : direction
+            ? `after: ${startCursor ? `"${startCursor}"` : null}`
+            : `before: ${endCursor ? `"${endCursor}"` : null}`
     return `
         query {
-          search(query: "${searchTerm}", type: REPOSITORY,first:${RESULTS_PER_PAGE}),
+          search(query: "${searchTerm}", type: REPOSITORY,${direct},${cursor})
             {
+             pageInfo {
+              hasNextPage
+              hasPreviousPage
+              startCursor
+              endCursor
+            }
             edges {
           
               node {
