@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { RepoType } from "../../features/repoApi"
+import { RepoType } from "../../features/reposApi"
 import s from "./RepoItem.module.scss"
 import { Link, useNavigate } from "react-router-dom"
 import { useActions } from "../../hooks/useActions"

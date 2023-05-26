@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-import { PageInfoType, repoApi, RepoType } from "./repoApi"
+import { PageInfoType, reposApi, RepoType } from "./reposApi"
 import { createAppAsyncThunk } from "../utils/create-app-async-thunk"
 import { handleServerNetworkError } from "../utils/handle-server-network-error"
 import { getQuery } from "../utils/get-query"
@@ -16,7 +16,7 @@ const getRepos = createAppAsyncThunk<{ edges: RepoType[]; pageInfo: PageInfoType
         const query = getQuery(searchTerm, RESULTS_PER_PAGE, direction, startCursor, endCursor)
 
         try {
-            const res = await repoApi.getRepos(query)
+            const res = await reposApi.getRepos(query)
             if (direction) {
                 dispatch(reposActions.serCurrentPage(currentPage + 1))
             }
