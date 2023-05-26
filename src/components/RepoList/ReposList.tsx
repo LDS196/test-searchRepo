@@ -43,6 +43,7 @@ const ReposList = () => {
     return (
         <div className={s.main}>
             <h1>Search Repositories by Name</h1>
+            <p>add Personal access tokens (classic) for github in reposApi.ts</p>
             <Search setSearchValue={setSearchTerm} searchName={searchTerm} changePage={serCurrentPage} />
             {error && <p>Error:{error}</p>}
             <ul>
