@@ -10,9 +10,6 @@
         "preview": "vite preview",
         "fix:prettier": "prettier --write \"**/*.*\""
     },
-    "engines": {
-        "node": "16.x"
-    },
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.5",
         "axios": "^1.4.0",
