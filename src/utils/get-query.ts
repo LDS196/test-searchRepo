@@ -11,8 +11,10 @@ export const getQuery = (searchTerm: string, RESULTS_PER_PAGE: number) => {
                   name
                   owner {
                   avatarUrl
-                    login
                     url
+                    ... on User {
+              name
+            }
                   }
                   stargazers {
                     totalCount

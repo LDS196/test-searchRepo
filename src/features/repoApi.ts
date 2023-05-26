@@ -35,8 +35,11 @@ export type RepoType = {
         name: string
         owner: {
             avatarUrl: string
-            login: string
+            name: string
             url: string
+            user: {
+                name: string
+            }
         }
         stargazers: {
             totalCount: number
