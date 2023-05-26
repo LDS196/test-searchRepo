@@ -1,9 +1,9 @@
 export const getQuery = (
     searchTerm: string,
     RESULTS_PER_PAGE: number,
-    direction: boolean,
-    endCursor: string,
-    startCursor: string
+    direction: boolean | null,
+    endCursor: string | null,
+    startCursor: string | null
 ) => {
     const direct =
         direction === null
