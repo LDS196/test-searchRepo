@@ -1,5 +1,5 @@
 {
-    "name": "search github repositories",
+    "name": "search-github-repositories",
     "private": true,
     "version": "0.0.0",
     "type": "module",
