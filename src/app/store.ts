@@ -1,10 +1,10 @@
 import { configureStore, ThunkAction, Action, combineReducers } from "@reduxjs/toolkit"
-import {appReducer} from "./app.slice";
-import {reposReducer,} from "../features/reposSlice";
+import { appReducer } from "./app.slice"
+import { reposReducer } from "../features/reposSlice"
 
 const rootReducer = combineReducers({
     app: appReducer,
-    repos: reposReducer
+    repos: reposReducer,
 })
 
 export const store = configureStore({
@@ -14,7 +14,6 @@ export const store = configureStore({
     //         serializableCheck: false,
     //     }),
 })
-
 
 export type AppDispatch = typeof store.dispatch
 export type RootState = ReturnType<typeof store.getState>

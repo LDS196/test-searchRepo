@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 type InitStateType = {
-    error: null | string,
+    error: null | string
     isLoading: boolean
 }
 
@@ -15,9 +15,8 @@ const slice = createSlice({
     initialState,
     reducers: {
         setAppError: (state, action: PayloadAction<{ error: string | null }>) => {
-            state.error= action.payload.error
+            state.error = action.payload.error
         },
-
     },
     extraReducers: (builder) => {
         builder
@@ -34,7 +33,6 @@ const slice = createSlice({
                     return action.type.endsWith("/rejected")
                 },
                 (state) => {
-
                     state.isLoading = false
                 }
             )

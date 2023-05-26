@@ -1,24 +1,26 @@
-import axios from "axios";
+import axios from "axios"
 
-const GITHUB_GRAPHQL_API = 'https://api.github.com/graphql';
+const GITHUB_GRAPHQL_API = "https://api.github.com/graphql"
 
 export const instance = axios.create({
     baseURL: GITHUB_GRAPHQL_API,
-        headers: {
-            Authorization: `Bearer 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`,
-        }
+    headers: {
+        Authorization: `Bearer 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`,
+    },
 })
-export const repoApi={
-    getRepos(query,variables){
-        return axios.post<RepoResponseType>('https://api.github.com/graphql', {query, variables},{
-            headers: {
-                Authorization: `Bearer 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`,
+export const repoApi = {
+    getRepos(query, variables) {
+        return axios.post<RepoResponseType>(
+            "https://api.github.com/graphql",
+            { query, variables },
+            {
+                headers: {
+                    Authorization: `Bearer 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`,
+                },
             }
-        })
-    }
+        )
+    },
 }
-
-
 
 export type RepoResponseType = {
     data: {
@@ -27,24 +29,23 @@ export type RepoResponseType = {
         }
     }
 }
-export type RepoType={
-    node:{
-    id: string
-    name: string
-    owner: {
-        avatarUrl: string
-        login: string
+export type RepoType = {
+    node: {
+        id: string
+        name: string
+        owner: {
+            avatarUrl: string
+            login: string
+            url: string
+        }
+        stargazers: {
+            totalCount: number
+        }
+        pushedAt: string
         url: string
+        languages: {
+            nodes: Array<{ name: string }>
+        }
+        description: string
     }
-    stargazers: {
-        totalCount: number
-    }
-    pushedAt: string
-    url: string
-    languages: {
-        nodes: Array<{ name: string }>
-    }
-    description: string
-}
-
 }

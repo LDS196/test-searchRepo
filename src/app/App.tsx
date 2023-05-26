@@ -1,15 +1,13 @@
-import './App.css'
-import RepoList from "../components/RepoList/RepoList";
-import {Route, Routes} from "react-router-dom";
+import "./App.css"
+import ReposList from "../components/RepoList/ReposList"
+import { Route, Routes } from "react-router-dom"
 
 function App() {
-
-
     return (
-        <div className="App" >
+        <div className="App">
             <Routes>
-                <Route  path={'/'} element={<RepoList/>}/>
-                <Route path={"/repoInfo"} element={<div></div>}/>
+                <Route path={"/"} element={<ReposList />} />
+                <Route path={"/repoInfo"} element={<div></div>} />
             </Routes>
         </div>
     )

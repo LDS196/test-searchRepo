@@ -1,5 +1,4 @@
-
-export const getQuery=(searchTerm:string,RESULTS_PER_PAGE:number)=>{
+export const getQuery = (searchTerm: string, RESULTS_PER_PAGE: number) => {
     return `
         query {
           search(query: "${searchTerm}", type: REPOSITORY,first:${RESULTS_PER_PAGE}),
