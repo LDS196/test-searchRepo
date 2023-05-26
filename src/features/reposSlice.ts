@@ -13,7 +13,7 @@ const getRepos = createAppAsyncThunk<{ edges: RepoType[]; pageInfo: PageInfoType
         const { searchTerm, currentPage, direction, pageInfo } = getState().repos
         const { startCursor, endCursor } = pageInfo
 
-        const query = getQuery(searchTerm, RESULTS_PER_PAGE, direction, startCursor, endCursor)
+        const query: any = getQuery(searchTerm, RESULTS_PER_PAGE, direction, startCursor, endCursor)
 
         try {
             const res = await reposApi.getRepos(query)
