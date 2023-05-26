@@ -1,4 +1,10 @@
-export const getQuery = (searchTerm: string, RESULTS_PER_PAGE: number, direction: boolean, endCursor, startCursor) => {
+export const getQuery = (
+    searchTerm: string,
+    RESULTS_PER_PAGE: number,
+    direction: boolean,
+    endCursor: string,
+    startCursor: string
+) => {
     const direct =
         direction === null
             ? `first: ${RESULTS_PER_PAGE}`
