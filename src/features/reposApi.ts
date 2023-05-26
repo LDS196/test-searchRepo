@@ -1,10 +1,10 @@
 import axios from "axios"
 
 const GITHUB_GRAPHQL_API = "https://api.github.com/graphql"
-const GITHUB_TOKEN = "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"
+const GITHUB_TOKEN = "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"
 
 export const reposApi = {
-    getRepos(query) {
+    getRepos(query:any) {
         return axios.post<RepoResponseType>(
             GITHUB_GRAPHQL_API,
             { query },
